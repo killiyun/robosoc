@@ -1,4 +1,4 @@
-# RoboSoc submission
-###Authors:
-*Some peeps idk rn
-TBA
+# RoboSoc submission #
+## Authors:
+* Some peeps idk rn
+* TBA
