@@ -47,7 +47,18 @@ if __name__ == "__main__":
         time.sleep(1)
         pi.set_servo_pulsewidth(ESC1, 1500)
         pi.set_servo_pulsewidth(ESC2, 1500)
+        state = 0
         while True:
+
+            if state == 0:
+                fuck_off()
+            elif state == 1:
+                offset()
+            elif state == 2:
+                blind()
+            elif state == 3:
+                smash()
+
             dist = distance("front")
             print(dist)
             if dist <= 150:
