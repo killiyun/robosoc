@@ -9,8 +9,8 @@ os.system("sudo pigpiod") #Launching GPIO library
 time.sleep(1) # As i said it is too impatient and so if this delay is removed you will get an error
 import pigpio #importing GPIO library
 
-ESC=24  #Connect the ESC in this GPIO pin 
-ESC2=4  #Connect the ESC of second motor to this GPIO pin
+ESC=18  #Connect the ESC in this GPIO pin 
+ESC2=24  #Connect the ESC of second motor to this GPIO pin
 
 pi = pigpio.pi();
 pi.set_servo_pulsewidth(ESC, 0) 
@@ -63,7 +63,7 @@ def calibrate():   #This is the auto calibration procedure of a normal ESC
             
 def control(): 
     time.sleep(1)
-    speed = 700 # note from harry, said "handshake" which wasnt a variable so im going with the min it recommended
+    speed = 1500 # note from harry, said "handshake" which wasnt a variable so im going with the min it recommended
     # change your speed if you want to.... it should be between 700 - 2000
     print ("Controls - a to decrease speed & d to increase speed OR q to decrease a lot of speed & e to increase a lot of speed")
     while True:

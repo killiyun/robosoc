@@ -1,3 +1,4 @@
+import os
 import RPi.GPIO as GPIO
 import time
 os.system("sudo pigpiod")
@@ -38,16 +39,26 @@ def distance(pin):
     
 if __name__ == "__main__":
     try:
+        pi.set_servo_pulsewidth(ESC1, 0)
+        time.sleep(1)
+        pi.set_servo_pulsewidth(ESC1, max_value)
+        time.sleep(1)
+        pi.set_servo_pulsewidth(ESC1, min_value)
+        time.sleep(1)
+        pi.set_servo_pulsewidth(ESC1, 1500)
+        pi.set_servo_pulsewidth(ESC2, 1500)
         while True:
             dist = distance("front")
-            if distance <= 150:
-                pi.set_servo_pulsewidth(ESC, 1000)
-                pi.set_servo_pulsewidth(ESC2, 1000)
+            print(dist)
+            if dist <= 150:
+                pi.set_servo_pulsewidth(ESC1, 1600)
+                pi.set_servo_pulsewidth(ESC2, 1600)
             else:
-                pi.set_servo_pulsewidth(ESC, 0)
-                pi.set_servo_pulsewidth(ESC2, 0)
+                pi.set_servo_pulsewidth(ESC1, 1500)
+                pi.set_servo_pulsewidth(ESC2, 1500)
             time.sleep(0.5)
     except KeyboardInterrupt:
         GPIO.cleanup()
+        os.system("sudo killall pigpiod")
         pi.stop()
     

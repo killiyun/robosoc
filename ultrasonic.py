@@ -41,6 +41,7 @@ def distance():
     return distance
  
 if __name__ == '__main__':
+    print("Distance: {}\n".format(distance()))
     try:
         while True:
             dist = distance()
