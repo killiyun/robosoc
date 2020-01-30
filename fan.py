@@ -4,7 +4,7 @@ os.system("sudo pigiod")
 time.sleep(1)
 import pigpio
 
-FAN1 = #Connect fan to this
+FAN1 = 12 #Connect fan to this
 
 pi = pigpio.pi()
 pi.set_servo_pulsewidth(FAN1, 1000)
